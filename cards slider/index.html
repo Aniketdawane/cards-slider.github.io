@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Quicksand:wght@300&display=swap" rel="stylesheet">
+    <title>cards slider</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            /* font-family: */
+        }
+
+        .cards .card .content .img {
+            height: 130px;
+            width: 130px;
+            /* border: 1px solid red; */
+            margin-bottom: 15px;
+            background: #05705d;
+            padding: 3px;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 950px;
+            /* background: red; */
+            overflow: hidden;
+            width: 100%;
+            padding: 80px 0;
+        }
+
+        .container .main-card {
+            width: 200%;
+            /* background: gray; */
+            display: flex;
+            justify-content: space-evenly;
+            transition: all ease 1s;
+        }
+
+        #two:checked~.main-card {
+            margin-left: -100%;
+        }
+
+
+
+        .main-card .cards {
+            width: calc(100% / 2 - 10px);
+            display: flex;
+            justify-content: space-between;
+            margin: 0 20px;
+            flex-wrap: wrap;
+
+        }
+
+        .main-card .cards .card {
+            background: #fff;
+            width: calc(100% / 3 - 10px);
+            padding: 30px;
+            border-radius: 24px;
+            transition: all ease 0.4s;
+
+        }
+
+        .main-card .cards .card:hover {
+            transform: translatey(-15px);
+        }
+
+
+        body {
+            /* border: 2px solid blue; */
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f2f2f2;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #05705d;
+            clip-path: inset(47% 0 0 0);
+            z-index: -1;
+        }
+
+        .cards .card .content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .cards .card .content .img img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            background: #fff;
+            padding: 3px;
+            border: 3px solid #fff;
+
+        }
+
+        .card .content .details .name {
+            font-size: 20px;
+            font-weight: 500;
+
+        }
+
+        .card .content .details .job {
+            font-size: 20px;
+            color: #c8057a;
+            font-weight: bold;
+
+        }
+
+        .card .content .media-icons a {
+            border: 2px solid blue;
+            height: 35px;
+            width: 35px;
+            color: #fff;
+            background: #0484f4;
+            margin: 0 4px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 33px;
+            border: 2px solid transparent;
+            font-size: 14px;
+            transition: all ease 0.4s;
+        }
+
+        .card .content .media-icons {
+            display: flex;
+            margin-top: 10px;
+        }
+
+        .content .media-icons a:hover {
+            border-color: #ff676d;
+            background: #fff;
+            color: #ff676d;
+        }
+
+        .button {
+            display: flex;
+            margin: 20px;
+            justify-content: center;
+        }
+
+        .button label {
+            height: 15px;
+            width: 15px;
+            background: #fff;
+            margin: 0 4px;
+            border-radius: 20px;
+            transition: all ease 0.5s;
+
+        }
+
+        .button label.active {
+            width: 35px;
+
+        }
+
+        #one:checked~.button label.one {
+            width: 35px;
+
+        }
+
+        #two:checked~.button label.two {
+            width: 35px;
+
+        }
+
+        #two:checked~.button label.one {
+            width: 15px;
+        }
+
+        #one:checked~.button label.two {
+            width: 15px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+        .name{
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight:bolder;
+            color: rgb(68, 8, 218);
+        }
+
+        @media(max-width: 600px) {
+            .main-card .cards .card {
+                background: #fff;
+                width: calc(100% / 2 - 10px);
+                margin: 20px 0 10px 0;
+            }
+        }
+        @media(max-width: 600px) {
+            .main-card .cards .card {
+                background: #fff;
+                width: 100;
+                /* margin: 20px 0 10px 0; */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container"> 
+        <input type="radio" name="dot" id="one">
+        <input type="radio" name="dot" id="two">
+        <div class="main-card">
+            <div class="cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img src="/img/avatar1.png" alt="">
+                        </div>
+
+                        <div class="details">
+                            <div class="name">Aniket Dwane</div>
+                            <div class="job">Fulls Stack Developer</div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img src="/img/avatar1.png" alt="">
+                        </div>
+
+                        <div class="details">
+                            <div class="name">Altaf Khan</div>
+                            <div class="job">web design</div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img src="/img/avatar1.png" alt="">
+                        </div>
+
+                        <div class="details">
+                            <div class="name">Ashutosh Mahindrakar</div>
+                            <div class="job">Tester</div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img src="/cards/cards.jpg" alt="">
+                        </div>
+
+                        <div class="details">
+                            <div class="name">andrew neil</div>
+                            <div class="job">web design</div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img src="/cards/cards.jpg" alt="">
+                        </div>
+
+                        <div class="details">
+                            <div class="name">andrew neil</div>
+                            <div class="job">web design</div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="content">
+                        <div class="img">
+                            <img src="/cards/cards.jpg" alt="">
+                        </div>
+
+                        <div class="details">
+                            <div class="name">andrew neil</div>
+                            <div class="job">web design</div>
+                        </div>
+                        <div class="media-icons">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="button">
+            <label for="one" class="one active"></label>
+            <label for="two" class="two"></label>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+<body>
+    
